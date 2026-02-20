@@ -131,49 +131,49 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }, observerOptions);
+const terminalContainer = document.getElementById('terminal-container');
+const terminalContent = document.querySelector('.terminal-content');
+const commandSpan = document.querySelector('.command-text');
 
-    const terminalContainer = document.getElementById('terminal-container');
-    const terminalContent = document.querySelector('.terminal-content');
-    const commandSpan = document.querySelector('.command-text');
+if (terminalContainer && terminalContent && commandSpan) {
+    // Hier fügen wir nach dem .com/ das unsichtbare Umbruchzeichen ein
+    const commandText = "git clone https://github.com/\u200Bmoritzwendt/Portfolio.git";
 
-    if (terminalContainer && terminalContent && commandSpan) {
-        const commandText = "git clone https://github.com/moritzwendt/Portfolio.git";
+    let i = 0;
+    const typeCommand = () => {
+        if (i < commandText.length) {
+            commandSpan.textContent += commandText.charAt(i);
+            i++;
+            setTimeout(typeCommand, 50);
+        } else {
+            const cursor = document.createElement('span');
+            cursor.className = 'inline-block w-2 h-5 bg-gray-900 dark:bg-white ml-1 animate-blink align-middle';
+            terminalContent.appendChild(cursor);
+        }
+    };
+
+    setTimeout(typeCommand, 1000);
+} else {
+    const terminal = document.querySelector('.terminal-body');
+    if (terminal) {
+        const commandElement = terminal.querySelector('.command');
+        const commandText = "git clone https://github.com/\u200Bmoritzwendt/Portfolio.git";
+        commandElement.textContent = '';
 
         let i = 0;
         const typeCommand = () => {
             if (i < commandText.length) {
-                commandSpan.textContent += commandText.charAt(i);
+                commandElement.textContent += commandText.charAt(i);
                 i++;
                 setTimeout(typeCommand, 50);
             } else {
-                const cursor = document.createElement('span');
-                cursor.className = 'inline-block w-2 h-5 bg-gray-900 dark:bg-white ml-1 animate-blink align-middle';
-                terminalContent.appendChild(cursor);
+                commandElement.insertAdjacentHTML('afterend', '<span class="animate-blink">_</span>');
             }
         };
 
         setTimeout(typeCommand, 1000);
-    } else {
-        const terminal = document.querySelector('.terminal-body');
-        if (terminal) {
-            const commandText = terminal.querySelector('.command').textContent;
-            terminal.querySelector('.command').textContent = '';
-
-            let i = 0;
-            const typeCommand = () => {
-                if (i < commandText.length) {
-                    terminal.querySelector('.command').textContent += commandText.charAt(i);
-                    i++;
-                    setTimeout(typeCommand, 50);
-                } else {
-                    terminal.querySelector('.command').insertAdjacentHTML('afterend', '<span class="animate-blink">_</span>');
-                }
-            };
-
-            setTimeout(typeCommand, 1000);
-        }
     }
-
+}
 });
 // ###############
 // EmailJS Initialisierung
