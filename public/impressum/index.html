@@ -19,18 +19,31 @@
 <body class="flex flex-col min-h-screen font-sans text-gray-900 dark:text-white bg-white dark:bg-dark-background transition-colors duration-300">
     
     <header class="fixed w-full top-0 z-50 bg-white/95 dark:bg-dark-background/95 backdrop-blur-sm shadow-sm">
-        <div class="container mx-auto px-4">
-            <nav class="flex justify-between items-center py-4">
-                <a href="../index.html" class="flex items-center hover:opacity-80 transition-opacity">
-                    <span class="text-primary text-2xl ml-1">●</span>
-                    <span class="text-xl font-extrabold ml-2 text-gray-900 dark:text-white">Moritz Wendt</span>
-                </a>
-                <a href="../index.html" class="text-sm font-medium text-primary hover:underline">
-                    <i class="fa-solid fa-arrow-left mr-2"></i> Zurück zur Hauptseite
-                </a>
-            </nav>
-        </div>
-    </header>
+            <div class="container mx-auto px-4">
+                <nav class="flex justify-between items-center py-4">
+                    <a href="../index.html" class="flex items-center hover:opacity-80 transition-opacity">
+                        <span class="text-primary text-2xl ml-1">●</span>
+                        <span class="text-xl font-extrabold">Moritz Wendt</span>
+                    </a>
+                    <div class="flex items-center space-x-6">
+                        <a href="../index.html" class="text-sm font-medium text-primary hover:underline">
+                            <i class="fa-solid fa-arrow-left mr-2"></i> Zurück zur Hauptseite </a>
+                        <div class="flex items-center space-x-4">
+                            <button id="themeToggle">
+                                <i class="fa-solid fa-moon text-gray-600 dark:text-gray-400"></i>
+                            </button>
+                            <button class="md:hidden p-2" id="menuToggle">
+                                <div class="w-6 h-5 flex flex-col justify-between">
+                                    <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400"></span>
+                                    <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400"></span>
+                                    <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400"></span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
 
     <main class="flex-1 pt-32 pb-16">
         <div class="container mx-auto px-4 max-w-3xl">
