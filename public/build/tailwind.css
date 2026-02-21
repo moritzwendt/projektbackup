@@ -510,6 +510,7 @@ video {
 .container {
   width: 100%;
 }
+@media (max-width: 450px) {#tToggle{margin-left: 12px;}}
 @media (min-width: 640px) {
 
   .container {
